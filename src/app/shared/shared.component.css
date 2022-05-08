@@ -1,0 +1,38 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  width: 60px;
+  height: 40px;
+}
+
+.logonav{
+  margin:0px 10px;
+}
+
+
+.card{
+  width: auto;
+  height: initial ;
+}
+
+.background{
+  position: absolute;
+  top: 40px;
+  width: 100% ;
+  height: 50%;
+}
+
+.background img {
+  width: 100%;
+
+}
+
+.larg-container {
+  width: 100%;
+  height: 100% ;
+
+
+}

@@ -1,0 +1,43 @@
+<div class="large-container">
+    <div class="container my-container">
+
+      <div class="card d-flex flex-column justify-content-center align-items-center shadow-lg p-3 mb-5 bg-body ">
+        <img src="./../../assets/images/royal-air-maroc-logo-alt.png" alt="">
+        <form class="formfield d-flex flex-column justify-content-center align-items-center"
+              (ngSubmit)="submit()"
+              [formGroup]="loginForm"
+        >
+
+          <mat-form-field class="field" appearance="fill">
+            <mat-label>Nom d'utilisateur </mat-label>
+            <input type="text" matInput
+                   placeholder="username"
+                   name="username"
+
+            >
+            <mat-icon aria-hidden="false" matSuffix aria-label="Example home icon">account_circle</mat-icon>
+
+            <mat-error >
+              Veuillez entrer un nom d'utilisateur.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="field" appearance="fill">
+            <mat-label>Mot de passe</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'"
+                   >
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <button class="shadow shadow-sm" mat-raised-button color="primary">Connexion</button>
+        </form>
+        <!-- <div class="inscrire">
+          <strong>Vous n'avez pas de compte? <a href="#">S'inscrire</a></strong>
+        </div> -->
+
+
+      </div>
+    </div>
+
+  </div>
