@@ -22,10 +22,10 @@ const routes :Routes  =  [
     path:"signup" , component:SignupComponent,
   },
   {
-    path:""  , component:SharedComponent,
+    path:"api/"  , component:SharedComponent,
     children: [
       { path: 'airplan', component: AirplaneComponent },
-      { path: 'system', component: SystemComponent },
+      { path: 'system/{id}', component: SystemComponent },
       {path:'upload', component:UploadComponent},
       {path:"dashboard" , component:DashboardComponent}
     ]

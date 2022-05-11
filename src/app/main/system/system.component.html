@@ -1,1 +1,29 @@
-<p>system works!</p>
+<div  *ngIf="systems" class="containers shadow-lg p-3 mb-5 bg-white rounded">
+  <table mat-table [dataSource]="systems"  >
+    <ng-container matColumnDef="airplan id">
+      <th mat-header-cell *matHeaderCellDef>airplan id</th>
+      <td mat-cell *matCellDef="let system"> {{system.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="tail number">
+      <th mat-header-cell *matHeaderCellDef>tail number</th>
+      <td mat-cell *matCellDef="let system"> {{system.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>action</th>
+      <td mat-cell *matCellDef="let system">
+        <button mat-raised-button color="primary" >System</button>
+      </td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns : columnsToDisplay"></tr>
+
+  </table>
+
+
+</div>
+

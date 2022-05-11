@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   submit(){
-    this.route.navigateByUrl('/upload');
+    this.route.navigateByUrl('/api/upload');
   }
 
 

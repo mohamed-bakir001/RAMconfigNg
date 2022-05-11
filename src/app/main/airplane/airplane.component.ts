@@ -6,6 +6,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {DataService} from "../core/services/data.service";
 import {Airplane} from "../core/models/airplan.model";
 import {catchError, map, Observable, of, Subscription} from "rxjs";
+import {Router} from "@angular/router";
 
 
 
@@ -14,11 +15,13 @@ import {catchError, map, Observable, of, Subscription} from "rxjs";
   templateUrl: './airplane.component.html',
   styleUrls: ['./airplane.component.css']
 })
+
 export class AirplaneComponent implements OnInit , AfterViewInit {
   columnsToDisplay = ["airplan id", "tail number", "date", "action"];
 
   airplanes: any ;
-  constructor(private dataSerive: DataService) {
+  constructor(private dataSerive: DataService,
+              private router:Router) {
   }
   ngAfterViewInit() {
   }
@@ -27,16 +30,16 @@ export class AirplaneComponent implements OnInit , AfterViewInit {
 
   ngOnInit(): void {
     this.onGetAirplans();
-    setTimeout(()=>{
-      console.log(this.airplanes )
-      console.log(typeof(this.airplanes))
-    }, 5000)
   }
 
   onGetAirplans(){
     this.airplanes =  this.dataSerive.getAirplaines().subscribe(airp =>
       this.airplanes = airp
     )
+  }
+
+  onGetSystem(id:number) {
+    this.router.navigateByUrl('/api/system/'+id)
   }
 
 }

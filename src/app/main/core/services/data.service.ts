@@ -18,7 +18,7 @@ export class DataService {
     return this.http.get<Airplane[]>(this.host+"/airplan") ;
   }
 
-  getSystems(id : number):Observable<Systeme[]>{
+  getSystems(id: number | undefined):Observable<Systeme[]>{
     return this.http.get<Systeme[]>(this.host+"/system/"+id) ;
   }
 

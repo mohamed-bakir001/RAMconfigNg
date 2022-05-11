@@ -1,4 +1,7 @@
-<div *ngIf="airplanes">
+<div *ngIf="airplanes"  class="containers shadow-lg p-3 mb-5 bg-white rounded">
+  <mat-toolbar>
+    <span>AirPlan</span>
+  </mat-toolbar>
   <table mat-table [dataSource]="airplanes"  >
     <ng-container matColumnDef="airplan id">
       <th mat-header-cell *matHeaderCellDef>airplan id</th>
@@ -17,7 +20,9 @@
 
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef>action</th>
-      <td mat-cell *matCellDef="let airplan"> {{airplan.airpId}}</td>
+      <td mat-cell *matCellDef="let airplan">
+        <button mat-raised-button color="primary" (click)="onGetSystem(airplan.airpId)">System</button>
+      </td>
     </ng-container>
 
 
@@ -26,5 +31,6 @@
     <tr mat-row *matRowDef="let row; columns : columnsToDisplay"></tr>
 
   </table>
+
 
 </div>

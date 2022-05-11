@@ -19,6 +19,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {HttpClientModule} from "@angular/common/http";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import {HttpClientModule} from "@angular/common/http";
         ReactiveFormsModule,
         MatTableModule,
         MatPaginatorModule,
+        MatToolbarModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
