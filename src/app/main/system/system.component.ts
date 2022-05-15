@@ -5,6 +5,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {DataService} from "../core/services/data.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Systeme} from "../core/models/system.model";
+import {MatPaginator, PageEvent} from "@angular/material/paginator";
 
 
 @Component({
@@ -13,10 +14,15 @@ import {Systeme} from "../core/models/system.model";
   styleUrls: ['./system.component.css']
 })
 export class SystemComponent implements OnInit ,AfterViewInit{
+  @ViewChild(MatPaginator) paginator!:MatPaginator;
+  columnsToDisplay = ["name", "action"];
+  idAirp?: number ;
+  dataSystems? : any ;
+  pageSize!: any;
+  pageIndex!: number
+  pageEvent!: void;
+  dataLength: any;
 
-  columnsToDisplay = ["system id", "name", "action"];
-  id?: number ;
-  systems? : Systeme[] ;
 
   constructor(private _liveAnnouncer: LiveAnnouncer,
               private route:Router,
@@ -33,14 +39,23 @@ export class SystemComponent implements OnInit ,AfterViewInit{
 
 
   onGetSystems(){
-    this.dataService.getSystems(this.id).subscribe(
-      system => this.systems = system
-    );
+    this.dataService.getSystems(this.idAirp).subscribe(
+      system => {
+        this.dataSystems = new MatTableDataSource<Systeme>(system)
+        this.dataLength= system.length
+      });
   }
 
   ngOnInit(): void {
-    this.id = this.activeRoute.snapshot.params['id'];
+    this.idAirp = this.activeRoute.snapshot.params['id'];
     this.onGetSystems()
   }
 
+  getServerData($event?: PageEvent) {
+
+  }
+
+  swLocation(id:number) {
+    this.route.navigateByUrl('/api/swlocation/'+id)
+  }
 }

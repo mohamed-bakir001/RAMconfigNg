@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {FileService} from "../main/core/services/file-upload.service";
 
 @Component({
   selector: 'app-shared',
@@ -8,10 +9,15 @@ import {Router} from "@angular/router";
 })
 export class SharedComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,
+              private fileServie:FileService,
+              ) { }
 
   ngOnInit(): void {
   }
+
+
+
 
 
 

@@ -17,7 +17,7 @@ import {Router} from "@angular/router";
 })
 
 export class AirplaneComponent implements OnInit , AfterViewInit {
-  columnsToDisplay = ["airplan id", "tail number", "date", "action"];
+  columnsToDisplay = [ "tail number", "date", "action"];
 
   airplanes: any ;
   constructor(private dataSerive: DataService,

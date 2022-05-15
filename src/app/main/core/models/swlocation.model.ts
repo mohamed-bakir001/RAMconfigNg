@@ -2,7 +2,7 @@
 
 export interface Swlocation {
 
-   swLocationId : number ;
+   swlocationId : number ;
    type : string ;
    value : string ;
    description : string ;

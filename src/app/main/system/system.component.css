@@ -1,5 +1,30 @@
-th, td {
-  width: 12vw;
-  height: 4vh;
+
+.containers1{
+  padding: 0 !important;
+  height: 60vh;
+  overflow-y: auto;
 
 }
+
+th, td {
+  margin: 0;
+  width: 27vw;
+  height: 8vh;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+th {
+  font-weight: bold;
+  font-size: larger;
+  color: black;
+}
+
+.mat-header-cell {
+  background: gainsboro;
+}
+
+
+
+
+

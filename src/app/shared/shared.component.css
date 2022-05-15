@@ -4,8 +4,10 @@
 }
 
 .logo {
-  width: 60px;
-  height: 40px;
+  position: relative;
+  top:-11px;
+  width: auto;
+  height: 15vh;
 }
 
 .logonav{
@@ -36,5 +38,17 @@
 }
 
 .navb{
-  height: 7vh;
+  height: 9vh;
+  font-weight: 500;
+  font-size: 1.5em;
+  color: black;
+}
+
+.navbutton a:hover {
+  text-shadow:  0 0 10px red;
+
+}
+
+.navbutton a{
+  margin-left: 1vw;
 }

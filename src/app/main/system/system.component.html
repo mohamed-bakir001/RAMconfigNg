@@ -1,29 +1,37 @@
-<div  *ngIf="systems" class="containers shadow-lg p-3 mb-5 bg-white rounded">
-  <table mat-table [dataSource]="systems"  >
-    <ng-container matColumnDef="airplan id">
-      <th mat-header-cell *matHeaderCellDef>airplan id</th>
-      <td mat-cell *matCellDef="let system"> {{system.id}}</td>
-    </ng-container>
+<div  *ngIf="dataSystems" class=" shadow-lg p-3 mb-5 bg-white rounded ">
+  <mat-toolbar class="d-flex justify-content-center align-content-center" style="font-size: 3em">
+    <span>Aiplane : Systems</span>
+  </mat-toolbar>
+  <div class="containers1 mt-4" >
+    <table mat-table [dataSource]="dataSystems"  >
 
-    <ng-container matColumnDef="tail number">
-      <th mat-header-cell *matHeaderCellDef>tail number</th>
-      <td mat-cell *matCellDef="let system"> {{system.name}}</td>
-    </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>System name</th>
+        <td mat-cell *matCellDef="let system"> {{system.name}}</td>
+      </ng-container>
 
-    <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef>action</th>
-      <td mat-cell *matCellDef="let system">
-        <button mat-raised-button color="primary" >System</button>
-      </td>
-    </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let system">
+          <button mat-raised-button color="warn"
+            (click)="swLocation(system.systemId)"
+          >
+            SWlocation
+          </button>
+        </td>
+      </ng-container>
 
 
 
-    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-    <tr mat-row *matRowDef="let row; columns : columnsToDisplay"></tr>
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay sticky: true" ></tr>
+      <tr mat-row *matRowDef="let row; columns : columnsToDisplay"></tr>
 
-  </table>
 
+    </table>
+
+
+
+  </div>
 
 </div>
 

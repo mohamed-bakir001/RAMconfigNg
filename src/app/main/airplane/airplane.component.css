@@ -6,11 +6,33 @@
 
 
 th, td {
-  width: 12vw;
+  width: 16vw;
   height: 4vh;
-
+  text-align: center !important;
+  vertical-align: middle !important;
 }
 
-tr{
+th {
+  font-weight: bold;
+  font-size: larger;
+  color: black;
+}
 
+.mat-header-cell {
+  background: gainsboro;
+}
+
+
+
+table tr.mat-row {
+  height: 10vh;
+}
+
+
+
+.scroll{
+  padding: 0 !important;
+  height: 60vh;
+  overflow-y: auto;
+  margin-top: 5vh;
 }

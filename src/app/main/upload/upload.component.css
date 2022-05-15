@@ -1,5 +1,25 @@
 .card{
-  width: 700px;
-  height: 500px;
+  width: 50vw;
+  height: 50vh;
+}
 
+.card mat-toolbar {
+  height: 20%;
+
+}
+
+.card form {
+  height: 80%;
+
+
+}
+
+.card form div{
+
+  width: 80% !important;
+
+}
+
+button{
+  width: 5vw;
 }

@@ -20,6 +20,7 @@ import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {HttpClientModule} from "@angular/common/http";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { SwlocationComponent } from './main/swlocation/swlocation.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     SystemComponent,
     UploadComponent,
     SharedComponent,
-    SignupComponent
+    SignupComponent,
+    SwlocationComponent
   ],
     imports: [
         BrowserModule,
