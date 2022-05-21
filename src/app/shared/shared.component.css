@@ -18,6 +18,7 @@
 .card{
   width: 100vw;
   height: 93vh;
+  padding-top: 4vh;
 }
 
 .background{
@@ -46,9 +47,21 @@
 
 .navbutton a:hover {
   text-shadow:  0 0 10px red;
-
+  color: red;
 }
 
 .navbutton a{
   margin-left: 1vw;
+}
+
+
+.logout button{
+  border: none;
+  background: rgba(var(--bs-light-rgb),var(--bs-bg-opacity))!important;
+}
+
+.logout button:hover{
+  color: red;
+  text-shadow:  0 0 10px red;
+
 }

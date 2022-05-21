@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import {AuthService} from "../core/services/auth.service";
+import {TokenStorageService} from "../core/services/token-storage.service";
 
 @Component({
   selector: 'app-login',
@@ -10,8 +12,15 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   hide= false ;
   loginForm!: FormGroup  ;
+  isLoginFailed:Boolean;
+  isLoggedIn ;
+  roles : string[] = [];
+  errorMsg : string = '';
 
-  constructor( private route:Router, private fb: FormBuilder) { }
+  constructor( private route:Router,
+               private fb: FormBuilder,
+               private authService: AuthService,
+               private tokenStorage:TokenStorageService) { }
 
   ngOnInit(): void {
     this.createFormGroup();
@@ -25,6 +34,16 @@ export class LoginComponent implements OnInit {
   }
 
   submit(){
+    this.authService.login(this.loginForm.get('username').value, this.loginForm.get("password").value).subscribe(
+      resutl =>{
+        this.tokenStorage.saveToken(resutl.accessToken);
+        this.tokenStorage.saveUser(resutl) ;
+        this.isLoginFailed = false ;
+        this.isLoggedIn = true ;
+        this.roles = this.tokenStorage.getUser().roles;
+        this.route.navigateByUrl("home");
+      }
+    )
     this.route.navigateByUrl('/api/upload');
   }
 

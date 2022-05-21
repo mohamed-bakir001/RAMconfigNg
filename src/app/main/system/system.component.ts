@@ -1,11 +1,10 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {MatSort, Sort} from "@angular/material/sort";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatTableDataSource} from "@angular/material/table";
 import {DataService} from "../core/services/data.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Systeme} from "../core/models/system.model";
-import {MatPaginator, PageEvent} from "@angular/material/paginator";
+
 
 
 @Component({
@@ -14,18 +13,13 @@ import {MatPaginator, PageEvent} from "@angular/material/paginator";
   styleUrls: ['./system.component.css']
 })
 export class SystemComponent implements OnInit ,AfterViewInit{
-  @ViewChild(MatPaginator) paginator!:MatPaginator;
   columnsToDisplay = ["name", "action"];
   idAirp?: number ;
   dataSystems? : any ;
-  pageSize!: any;
-  pageIndex!: number
-  pageEvent!: void;
-  dataLength: any;
 
 
-  constructor(private _liveAnnouncer: LiveAnnouncer,
-              private route:Router,
+
+  constructor(private route:Router,
               private dataService:DataService,
               private activeRoute: ActivatedRoute) {}
 
@@ -42,7 +36,6 @@ export class SystemComponent implements OnInit ,AfterViewInit{
     this.dataService.getSystems(this.idAirp).subscribe(
       system => {
         this.dataSystems = new MatTableDataSource<Systeme>(system)
-        this.dataLength= system.length
       });
   }
 
@@ -51,11 +44,18 @@ export class SystemComponent implements OnInit ,AfterViewInit{
     this.onGetSystems()
   }
 
-  getServerData($event?: PageEvent) {
-
-  }
 
   swLocation(id:number) {
-    this.route.navigateByUrl('/api/swlocation/'+id)
+    this.route.navigateByUrl('/api/swlocation/'+this.idAirp +'/'+id)
+  }
+
+  return() {
+    this.route.navigateByUrl("api/airplan")
+  }
+
+  applyFilter(filterValue: string) {
+
+    //this.dataSystems.filter = filterValue.trim().toLowerCase();
+
   }
 }

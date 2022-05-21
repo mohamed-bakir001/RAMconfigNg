@@ -11,7 +11,7 @@ import {LoadableSW} from "../models/swloadable.model";
   providedIn: 'root'
 })
 export class DataService {
-  private host = environment.host;
+  private host = environment.host +'/api';
   constructor(private http:HttpClient) { }
 
   getAirplaines():Observable<Airplane[]>{

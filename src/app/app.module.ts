@@ -21,6 +21,8 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {HttpClientModule} from "@angular/common/http";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { SwlocationComponent } from './main/swlocation/swlocation.component';
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -36,19 +38,21 @@ import { SwlocationComponent } from './main/swlocation/swlocation.component';
     SignupComponent,
     SwlocationComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        MatInputModule,
-        MatIconModule,
-        MatButtonModule,
-        BrowserAnimationsModule,
-        ReactiveFormsModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatToolbarModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatToolbarModule,
+    MatOptionModule,
+    MatSelectModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

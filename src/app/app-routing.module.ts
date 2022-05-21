@@ -13,14 +13,14 @@ import {SwlocationComponent} from "./main/swlocation/swlocation.component";
 
 const routes :Routes  =  [
   {path:""  , component:LoginComponent},
-  {path:"home"  , component:HomeComponent,},
-  {path:"signup" , component:SignupComponent,},
+  {path:"home"  , component:HomeComponent},
   {path:"api"  , component:SharedComponent,
     children: [
       { path: 'airplan', component: AirplaneComponent },
       { path: 'system/:id', component: SystemComponent },
-      { path: 'swlocation/:id', component: SwlocationComponent },
+      { path: 'swlocation/:idair/:idsystem', component: SwlocationComponent },
       {path:'upload', component:UploadComponent},
+      {path:"signup" , component:SignupComponent},
       {path:"dashboard" , component:DashboardComponent}
     ]
   }

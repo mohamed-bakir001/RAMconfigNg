@@ -42,4 +42,7 @@ export class AirplaneComponent implements OnInit , AfterViewInit {
     this.router.navigateByUrl('/api/system/'+id)
   }
 
+  return() {
+    this.router.navigateByUrl('api/dashboard')
+  }
 }

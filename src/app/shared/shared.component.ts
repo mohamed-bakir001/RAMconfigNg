@@ -17,9 +17,7 @@ export class SharedComponent implements OnInit {
   }
 
 
-
-
-
-
-
+  logout() {
+    this.router.navigateByUrl('') ;
+  }
 }

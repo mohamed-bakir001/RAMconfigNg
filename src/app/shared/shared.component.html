@@ -1,19 +1,27 @@
 <div class=" d-flex flex-column  larg-container " >
   <nav class="navb navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <img src="assets/images/bakir_ram_image-removebg-preview.png" alt="" class="logo">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav navbutton">
-          <a class="nav-link active" aria-current="page" routerLink="/api/dashboard">Dashbord</a>
-          <a class="nav-link active" routerLink="/api/upload">Upload</a>
-          <a class="nav-link active" routerLink="/api/airplan">Airplanes</a>
-          <a class="nav-link active" routerLink="/*">Users</a>
+      <div class="container-fluid">
+        <img src="assets/images/bakir_ram_image-removebg-preview.png" alt="" class="logo">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav navbutton">
+            <a class="nav-link active" aria-current="page" routerLink="/api/dashboard">Dashbord</a>
+            <a class="nav-link active" routerLink="/api/upload">Upload</a>
+            <a class="nav-link active" routerLink="/api/airplan">Airplanes</a>
+            <a class="nav-link active" routerLink="/*">Users</a>
+          </div>
         </div>
       </div>
-    </div>
+
+        <div class="logout">
+          <button style="border: none;" (click)="logout()" >
+            <mat-icon aria-hidden="false" aria-label="Example home icon" class="m-lg-3" >logout</mat-icon>
+          </button>
+
+        </div>
+
   </nav>
     <div class="card d-flex justify-content-center align-items-center" >
       <router-outlet></router-outlet>

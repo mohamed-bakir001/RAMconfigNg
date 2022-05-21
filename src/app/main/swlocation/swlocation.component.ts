@@ -15,13 +15,15 @@ export class SwlocationComponent implements OnInit {
   loadableSws!: LoadableSW[];
   columnsToDisplaylocation = ['type', 'value', 'description', 'action']
   columnsToDisplayloadable = ['description', 'partNumber']
+  private airId: number;
 
   constructor(private dataService: DataService,
               private activatedRoute:ActivatedRoute,
               private route:Router) { }
 
   ngOnInit(): void {
-    this.systemId = this.activatedRoute.snapshot.params["id"];
+    this.systemId = this.activatedRoute.snapshot.params["idsystem"];
+    this.airId = this.activatedRoute.snapshot.params["idair"];
     this.onGetSWlocation();
     //console.log(this.swlocations , "hello")
   }
@@ -43,5 +45,9 @@ export class SwlocationComponent implements OnInit {
         console.log(this.loadableSws)
       }
     )
+  }
+
+  return() {
+    this.route.navigateByUrl("api/system/" + this.airId);
   }
 }
