@@ -6,9 +6,17 @@
       <mat-icon aria-hidden="false" aria-label="Example home icon" >arrow_back_ios_new</mat-icon>
     </button>
 
-    <mat-form-field>
-      <input matInput placeholder="Filter">
-    </mat-form-field>
+    <form class="example-form"
+      (submit)="search1()"
+    >
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Search</mat-label>
+        <input type="search" matInput placeholder="Ex. search"
+              [(ngModel)]="search">
+      </mat-form-field >
+      <button style="border: none; background: white; font-size:2em"><mat-icon aria-hidden="false" aria-label="Example home icon" >search</mat-icon></button>
+    </form>
+
 
   </div>
 

@@ -1,9 +1,10 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, NgModule, OnInit, ViewChild} from '@angular/core';
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatTableDataSource} from "@angular/material/table";
 import {DataService} from "../core/services/data.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Systeme} from "../core/models/system.model";
+import {NgxUiLoaderService} from "ngx-ui-loader";
 
 
 
@@ -16,12 +17,15 @@ export class SystemComponent implements OnInit ,AfterViewInit{
   columnsToDisplay = ["name", "action"];
   idAirp?: number ;
   dataSystems? : any ;
+  search :string;
+
 
 
 
   constructor(private route:Router,
               private dataService:DataService,
-              private activeRoute: ActivatedRoute) {}
+              private activeRoute: ActivatedRoute,
+              private ngxuiService:NgxUiLoaderService) {}
 
 
 
@@ -53,9 +57,8 @@ export class SystemComponent implements OnInit ,AfterViewInit{
     this.route.navigateByUrl("api/airplan")
   }
 
-  applyFilter(filterValue: string) {
 
-    //this.dataSystems.filter = filterValue.trim().toLowerCase();
-
+  search1() {
+    //for implement filter
   }
 }

@@ -7,6 +7,7 @@ import {DataService} from "../core/services/data.service";
 import {Airplane} from "../core/models/airplan.model";
 import {catchError, map, Observable, of, Subscription} from "rxjs";
 import {Router} from "@angular/router";
+import {NgxUiLoaderModule, NgxUiLoaderService} from "ngx-ui-loader";
 
 
 
@@ -18,24 +19,29 @@ import {Router} from "@angular/router";
 
 export class AirplaneComponent implements OnInit , AfterViewInit {
   columnsToDisplay = [ "tail number", "date", "action"];
-
+  firstUpload:boolean=true;
   airplanes: any ;
   constructor(private dataSerive: DataService,
-              private router:Router) {
+              private router:Router,
+              private ngxuiService:NgxUiLoaderService) {
   }
   ngAfterViewInit() {
+
   }
 
 
 
   ngOnInit(): void {
-    this.onGetAirplans();
+      this.onGetAirplans()
+      this.ngxuiService.stop()
+
   }
 
   onGetAirplans(){
-    this.airplanes =  this.dataSerive.getAirplaines().subscribe(airp =>
-      this.airplanes = airp
-    )
+    this.ngxuiService.start()
+    this.airplanes =  this.dataSerive.getAirplaines().subscribe(airp =>{
+        this.airplanes = airp
+    })
   }
 
   onGetSystem(id:number) {

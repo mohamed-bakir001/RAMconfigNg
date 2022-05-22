@@ -7,10 +7,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav navbutton">
-            <a class="nav-link active" aria-current="page" routerLink="/api/dashboard">Dashbord</a>
-            <a class="nav-link active" routerLink="/api/upload">Upload</a>
-            <a class="nav-link active" routerLink="/api/airplan">Airplanes</a>
-            <a class="nav-link active" routerLink="/*">Users</a>
+            <a class="nav-link active" aria-current="page" routerLink="/api/dashboard" >Dashbord</a>
+            <a class="nav-link active" routerLink="/api/upload" *ngIf="role=='ADMIN'">Upload</a>
+            <a class="nav-link active" routerLink="/api/airplan" >Airplanes</a>
+            <a class="nav-link active" routerLink="/api/user" *ngIf="role=='ADMIN'">Users</a>
           </div>
         </div>
       </div>

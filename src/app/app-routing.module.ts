@@ -13,6 +13,7 @@ import {SwlocationComponent} from "./main/swlocation/swlocation.component";
 
 const routes :Routes  =  [
   {path:""  , component:LoginComponent},
+  {path:"user1" , component:SignupComponent},
   {path:"home"  , component:HomeComponent},
   {path:"api"  , component:SharedComponent,
     children: [
@@ -20,7 +21,7 @@ const routes :Routes  =  [
       { path: 'system/:id', component: SystemComponent },
       { path: 'swlocation/:idair/:idsystem', component: SwlocationComponent },
       {path:'upload', component:UploadComponent},
-      {path:"signup" , component:SignupComponent},
+      {path:"user" , component:SignupComponent},
       {path:"dashboard" , component:DashboardComponent}
     ]
   }

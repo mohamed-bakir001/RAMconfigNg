@@ -12,13 +12,14 @@ import {User} from "../core/models/user.model";
 })
 export class SignupComponent implements OnInit {
 
-  hide= false ;
+  hide= true ;
   loginForm!: FormGroup  ;
   isLoginFailed:Boolean;
   isLoggedIn ;
+  rolesValue : string[] = ["User", "Admin"] ;
   roles : string[] = [];
   errorMsg : string = '';
-  user:User;
+  user:User ;
 
   constructor( private route:Router,
                private fb: FormBuilder,
@@ -31,23 +32,28 @@ export class SignupComponent implements OnInit {
 
   createFormGroup(){
     this.loginForm = this.fb.group({
-
       username:[null, [Validators.required, Validators.minLength(6)]],
       password:[null, [Validators.required, Validators.minLength(6)]],
-      firstName:[null,[Validators.required, Validators.minLength(6)]],
-      lastName:[null,[Validators.required, Validators.minLength(6)] ],
-      roles:[null]
+      firstName:[null,[Validators.required]],
+      lastName:[null,[Validators.required]],
+      role:[null, [Validators.required]]
     })
   }
 
   register(){
-    this.user = this.loginForm.value;
-    console.log(this.user)
-    this.authService.register(this.user).subscribe(
-      resutl =>{
+    if(this.loginForm.value){
+     this.user = this.loginForm.value;
+     this.user.roles = Array(this.loginForm.get("role").value) ;
+     console.log(this.user)
+
+      this.authService.register(this.user).subscribe(resutl =>{
         console.log(resutl)
-      }
-    )
-    this.route.navigateByUrl('/login');
+        this.route.navigateByUrl("api/dashboard") ;
+      }) ;
+    }
+
+
+
+  //  this.route.navigateByUrl('/login');
   }
 }

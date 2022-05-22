@@ -4,6 +4,7 @@ import {HttpErrorResponse, HttpEvent, HttpEventType} from "@angular/common/http"
 import { saveAs } from 'file-saver';
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
+import {NgxUiLoaderService} from "ngx-ui-loader";
 
 
 interface HTMLInputEvent extends Event {
@@ -26,7 +27,8 @@ export class UploadComponent implements OnInit {
   fileStatus = {status: '', requestType: '', percent: 0} ;
 
   constructor(private fileService:FileService,
-              private route:Router) { }
+              private route:Router,
+              private ngxService:NgxUiLoaderService) { }
 
   ngOnInit(): void {
   }
@@ -76,25 +78,33 @@ export class UploadComponent implements OnInit {
   }
 
   onUploadFiles() :void {
-    if(this.file){
-      const formData = new FormData() ;
-      if(this.file.type == 'text/xml'){
-        formData.append('file', this.file, this.file.name)
-        this.fileService.uploadFile(formData).subscribe(
-          event=>{
-            this.resportProgress(event)
-            this.route.navigateByUrl('/api/airplan')
-          },
-          (error:HttpErrorResponse)=>{
-            console.log(error);
-          })
+
+    this.ngxService.start()
+
+      if(this.file){
+        this.ngxService.start();
+        const formData = new FormData() ;
+        if(this.file.type == 'text/xml'){
+          formData.append('file', this.file, this.file.name)
+          this.fileService.uploadFile(formData).subscribe(
+            event=>{
+              if(event){
+                this.resportProgress(event)
+                this.route.navigateByUrl('/api/airplan') ;
+              }
+
+            },
+            (error:HttpErrorResponse)=>{
+              console.log(error);
+            })
+        }else{
+          console.log('file is not xml ....!')
+        }
+
       }else{
-        console.log('file is not xml ....!')
+        console.log("this file is unifined")
       }
 
-    }else{
-      console.log("this file is unifined")
-    }
 
   }
 

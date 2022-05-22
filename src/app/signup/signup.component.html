@@ -7,6 +7,7 @@
     </div>
     <form class="formfield d-flex flex-column justify-content-center align-items-center align-content-center "
           [formGroup]="loginForm"
+          *ngIf="loginForm"
     >
       <div class="d-flex flex-wrap justify-content-center align-content-center">
 
@@ -20,7 +21,7 @@
             <mat-icon aria-hidden="false" matSuffix aria-label="Example home icon">account_circle</mat-icon>
 
             <mat-error >
-              Veuillez entrer un nom d'utilisateur.
+              Veuillez entrer un prenom.
             </mat-error>
           </mat-form-field>
 
@@ -35,7 +36,7 @@
           <mat-icon aria-hidden="false" matSuffix aria-label="Example home icon">account_circle</mat-icon>
 
           <mat-error >
-            Veuillez entrer un nom d'utilisateur.
+            Veuillez entrer un nom.
           </mat-error>
         </mat-form-field>
 
@@ -57,6 +58,7 @@
         <mat-form-field class="field" appearance="fill">
           <mat-label>Mot de passe</mat-label>
           <input matInput [type]="hide ? 'password' : 'text'"
+            formControlName="password"
           >
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -65,8 +67,8 @@
 
         <mat-form-field appearance="fill" class="field">
           <mat-label>Role</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let role of roles" [value]="role" >
+          <mat-select formControlName="role">
+            <mat-option *ngFor="let role of rolesValue" [value]="role"  >
               {{role}}
             </mat-option>
           </mat-select>

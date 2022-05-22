@@ -15,7 +15,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {HttpClientModule} from "@angular/common/http";
@@ -23,7 +23,32 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import { SwlocationComponent } from './main/swlocation/swlocation.component';
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
+import {NgxUiLoaderConfig, NgxUiLoaderModule} from "ngx-ui-loader";
 
+const ngxUiLoaderConfig: NgxUiLoaderConfig = {
+  'bgsColor': '#50a4ed',
+  'bgsOpacity': 0.5,
+  'bgsPosition': 'top-right',
+  'bgsSize': 70,
+  'bgsType': 'three-strings',
+  'blur': 5,
+  'fgsColor': '#50a4ed',
+  'fgsPosition': 'center-center',
+  'fgsSize': 90,
+  'fgsType': 'three-strings',
+  'gap': 24,
+  'logoPosition': 'center-center',
+  'logoSize': 120,
+  'logoUrl': '',
+  'overlayColor': 'rgba(40,40,40,0.15)',
+  'pbColor': '#50a4ed',
+  'pbDirection': 'ltr',
+  'pbThickness': 3,
+  'hasProgressBar': true,
+  'text': 'Chargement en cours...',
+  'textColor': '#50a4ed',
+  'textPosition': 'center-center'
+};
 
 @NgModule({
   declarations: [
@@ -39,6 +64,7 @@ import {MatSelectModule} from "@angular/material/select";
     SwlocationComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -52,6 +78,7 @@ import {MatSelectModule} from "@angular/material/select";
     MatToolbarModule,
     MatOptionModule,
     MatSelectModule,
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

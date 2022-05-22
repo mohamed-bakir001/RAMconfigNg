@@ -3,6 +3,7 @@ import {DataService} from "../core/services/data.service";
 import {Swlocation} from "../core/models/swlocation.model";
 import {LoadableSW} from "../core/models/swloadable.model";
 import {ActivatedRoute, Router} from "@angular/router";
+import {NgxUiLoaderService} from "ngx-ui-loader";
 
 @Component({
   selector: 'app-swlocation',
@@ -19,7 +20,8 @@ export class SwlocationComponent implements OnInit {
 
   constructor(private dataService: DataService,
               private activatedRoute:ActivatedRoute,
-              private route:Router) { }
+              private route:Router,
+              private ngxuiService:NgxUiLoaderService) { }
 
   ngOnInit(): void {
     this.systemId = this.activatedRoute.snapshot.params["idsystem"];

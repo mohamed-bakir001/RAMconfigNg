@@ -34,8 +34,10 @@ export class LoginComponent implements OnInit {
   }
 
   submit(){
+    console.log(this.loginForm.value)
     this.authService.login(this.loginForm.get('username').value, this.loginForm.get("password").value).subscribe(
       resutl =>{
+        console.log(resutl)
         this.tokenStorage.saveToken(resutl.accessToken);
         this.tokenStorage.saveUser(resutl) ;
         this.isLoginFailed = false ;
@@ -44,7 +46,7 @@ export class LoginComponent implements OnInit {
         this.route.navigateByUrl("home");
       }
     )
-    this.route.navigateByUrl('/api/upload');
+    //this.route.navigateByUrl('/api/upload');
   }
 
 
