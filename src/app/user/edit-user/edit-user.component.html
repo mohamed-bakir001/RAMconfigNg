@@ -8,7 +8,7 @@
       </button>
     </div>
     <div class="logo d-flex justify-content-center">
-      <img src="./../../assets/images/royal-air-maroc-logo-alt.png" alt="ARM">
+      <img src="../../../assets/images/royal-air-maroc-logo-alt.png" alt="ARM">
     </div>
     <form class="formfield d-flex flex-column justify-content-center align-items-center align-content-center "
           [formGroup]="loginForm"
@@ -16,21 +16,21 @@
     >
       <div class="d-flex flex-wrap justify-content-center align-content-center">
 
-          <mat-form-field class="field" appearance="fill">
-            <mat-label>First Name  </mat-label>
-            <input type="text" matInput
-                   placeholder="firstName"
-                   name="fastName"
-                   formControlName="firstName"
-            >
-            <mat-icon aria-hidden="false" matSuffix aria-label="Example home icon">account_circle</mat-icon>
+        <mat-form-field class="field" appearance="fill">
+          <mat-label>First Name  </mat-label>
+          <input type="text" matInput
+                 placeholder="firstName"
+                 name="fastName"
+                 formControlName="firstName"
+          >
+          <mat-icon aria-hidden="false" matSuffix aria-label="Example home icon">account_circle</mat-icon>
 
-            <mat-error >
-              Veuillez entrer un prenom.
-            </mat-error>
-          </mat-form-field>
+          <mat-error >
+            Veuillez entrer un prenom.
+          </mat-error>
+        </mat-form-field>
 
-          <mat-form-field  class="field" appearance="fill">
+        <mat-form-field  class="field" appearance="fill">
           <mat-label>Last Name</mat-label>
           <input type="text" matInput
                  placeholder="lastName"
@@ -62,7 +62,7 @@
         <mat-form-field class="field" appearance="fill">
           <mat-label>password</mat-label>
           <input matInput [type]="hide ? 'password' : 'text'"
-            formControlName="password"
+                 formControlName="password"
           >
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -81,7 +81,14 @@
       </div>
 
 
-      <button class="shadow shadow-sm" mat-raised-button color="primary" (click)="register();" style="background-color:red">Connexion</button>
+      <button class="shadow shadow-sm"
+              mat-raised-button
+              color="primary"
+              (click)="update()"
+              style="background-color:red"
+      >
+        modify
+      </button>
     </form>
     <!-- <div class="inscrire">
       <strong>Vous n'avez pas de compte? <a href="#">S'inscrire</a></strong>

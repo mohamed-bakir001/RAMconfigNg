@@ -9,7 +9,8 @@ import {SharedComponent} from "./shared/shared.component";
 import {AirplaneComponent} from "./main/airplane/airplane.component";
 import {SystemComponent} from "./main/system/system.component";
 import {SwlocationComponent} from "./main/swlocation/swlocation.component";
-import {UserComponent} from "./main/user/user.component";
+import {UserComponent} from "./user/user.component";
+import {EditUserComponent} from "./user/edit-user/edit-user.component";
 
 
 const routes :Routes  =  [
@@ -24,7 +25,8 @@ const routes :Routes  =  [
       {path:'upload', component:UploadComponent},
       {path:"signup" , component:SignupComponent},
       {path:"dashboard" , component:DashboardComponent},
-      {path:"user" , component:UserComponent}
+      {path:"user" , component:UserComponent},
+      {path:"edituser/:id" , component:EditUserComponent}
 
     ]
   }

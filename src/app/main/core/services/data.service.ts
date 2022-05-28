@@ -51,4 +51,12 @@ export class DataService {
   deleteUser(id:number):Observable<User>{
     return this.http.delete<User>(this.host+'/user/'+id) ;
   }
+
+  getUser(id:number):Observable<User>{
+    return this.http.get<User>(this.host+'/user/'+id) ;
+  }
+
+  editUser(user:User):Observable<User>{
+    return this.http.put<User>(this.host+'/user/'+user.id,user) ;
+  }
 }

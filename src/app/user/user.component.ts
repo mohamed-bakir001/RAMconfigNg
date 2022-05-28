@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from "../core/services/data.service";
+import {DataService} from "../main/core/services/data.service";
 import {Router} from "@angular/router";
 import {NgxUiLoaderService} from "ngx-ui-loader";
+import {User} from "../core/models/user.model";
 
 @Component({
   selector: 'app-user',
@@ -40,8 +41,8 @@ export class UserComponent implements OnInit {
 
   }
 
-  update(user) {
-
+  update(user:User) {
+    this.router.navigateByUrl('/api/edituser/'+user.id);
   }
 
   addUser() {

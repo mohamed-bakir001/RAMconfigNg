@@ -52,9 +52,11 @@ export class SignupComponent implements OnInit {
         this.route.navigateByUrl("api/dashboard") ;
       }) ;
     }
-
-
-
-  //  this.route.navigateByUrl('/login');
+    //  this.route.navigateByUrl('/login');
   }
+
+  return() {
+    this.route.navigateByUrl("api/user")
+  }
+
 }
