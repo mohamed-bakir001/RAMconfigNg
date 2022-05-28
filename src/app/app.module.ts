@@ -24,6 +24,7 @@ import { SwlocationComponent } from './main/swlocation/swlocation.component';
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import {NgxUiLoaderConfig, NgxUiLoaderModule} from "ngx-ui-loader";
+import { UserComponent } from './main/user/user.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   'bgsColor': '#50a4ed',
@@ -61,7 +62,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     UploadComponent,
     SharedComponent,
     SignupComponent,
-    SwlocationComponent
+    SwlocationComponent,
+    UserComponent
   ],
   imports: [
     FormsModule,
@@ -78,7 +80,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     MatToolbarModule,
     MatOptionModule,
     MatSelectModule,
-    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

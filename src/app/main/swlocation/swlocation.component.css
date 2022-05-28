@@ -8,7 +8,7 @@ div.large{
 }
 
 .swlocatoin{
-  width: 40vw;
+  width:45vw;
 
 }
 
@@ -56,4 +56,12 @@ th, td {
 }
 
 tr{
+}
+.displaynone{
+  display: none;
+  content :"Manual setup";
+}
+
+.displayflex{
+  display:flex;
 }

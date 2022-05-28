@@ -3,7 +3,6 @@
     <button style="border: none; background: white" (click)="return()">
       <mat-icon aria-hidden="false" aria-label="Example home icon" >arrow_back_ios_new</mat-icon>
     </button>
-
   </div>
 
   <mat-toolbar class="d-flex justify-content-center align-content-center" style="font-size: 3em">
@@ -26,7 +25,9 @@
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef >Action</th>
     <td mat-cell *matCellDef="let airplan">
-      <button mat-raised-button color="warn" (click)="onGetSystem(airplan.airpId)">System</button>
+      <button mat-raised-button color="primary" (click)="onGetSystem(airplan.airpId)">System</button>
+
+      <button mat-raised-button color="warn" (click)="onDeleteAirplan(airplan.airpId)" style="margin-left: 5px; ">delete</button>
     </td>
   </ng-container>
 

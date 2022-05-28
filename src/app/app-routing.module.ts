@@ -9,6 +9,7 @@ import {SharedComponent} from "./shared/shared.component";
 import {AirplaneComponent} from "./main/airplane/airplane.component";
 import {SystemComponent} from "./main/system/system.component";
 import {SwlocationComponent} from "./main/swlocation/swlocation.component";
+import {UserComponent} from "./main/user/user.component";
 
 
 const routes :Routes  =  [
@@ -21,8 +22,10 @@ const routes :Routes  =  [
       { path: 'system/:id', component: SystemComponent },
       { path: 'swlocation/:idair/:idsystem', component: SwlocationComponent },
       {path:'upload', component:UploadComponent},
-      {path:"user" , component:SignupComponent},
-      {path:"dashboard" , component:DashboardComponent}
+      {path:"signup" , component:SignupComponent},
+      {path:"dashboard" , component:DashboardComponent},
+      {path:"user" , component:UserComponent}
+
     ]
   }
 ]

@@ -5,6 +5,8 @@ import {DataService} from "../core/services/data.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Systeme} from "../core/models/system.model";
 import {NgxUiLoaderService} from "ngx-ui-loader";
+import {Airplane} from "../core/models/airplan.model";
+
 
 
 
@@ -16,6 +18,7 @@ import {NgxUiLoaderService} from "ngx-ui-loader";
 export class SystemComponent implements OnInit ,AfterViewInit{
   columnsToDisplay = ["name", "action"];
   idAirp?: number ;
+  airplan:Airplane ;
   dataSystems? : any ;
   search :string;
 
@@ -43,8 +46,16 @@ export class SystemComponent implements OnInit ,AfterViewInit{
       });
   }
 
+  onGetAirplan(id:number){
+    this.dataService.getAirplanByid(id).subscribe(airp=>{
+      this.airplan = airp ;
+      console.log(this.airplan)
+    })
+  }
+
   ngOnInit(): void {
     this.idAirp = this.activeRoute.snapshot.params['id'];
+    this.onGetAirplan(this.idAirp) ;
     this.onGetSystems()
   }
 

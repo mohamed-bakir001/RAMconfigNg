@@ -1,0 +1,58 @@
+<div *ngIf="users"  class="containers shadow-lg p-3 mb-5 bg-white rounded">
+
+
+  <div class="return mb-2">
+    <button  mat-stroked-button color="primary" (click)="addUser()">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" >add</mat-icon>
+      <span>user</span>
+    </button>
+  </div>
+
+  <mat-toolbar class="d-flex justify-content-center align-content-center" style="font-size: 3em">
+    <span>Users table</span>
+  </mat-toolbar>
+
+
+  <div class="scroll">
+    <table mat-table [dataSource]="users"  >
+      <ng-container matColumnDef="First name">
+        <th mat-header-cell *matHeaderCellDef>First name</th>
+        <td mat-cell *matCellDef="let user"> {{user.firstName}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Last name">
+        <th mat-header-cell *matHeaderCellDef>Last name</th>
+        <td mat-cell *matCellDef="let user"> {{user.lastName}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Username">
+        <th mat-header-cell *matHeaderCellDef>Username</th>
+        <td mat-cell *matCellDef="let user"> {{user.username}}</td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="Roles">
+        <th mat-header-cell *matHeaderCellDef>Roles</th>
+        <td mat-cell *matCellDef="let user"> {{user.roles.toString()}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef >Action</th>
+        <td mat-cell *matCellDef="let user">
+          <button mat-raised-button color="warn" (click)="update(user)">update</button>
+        </td>
+      </ng-container>
+
+
+
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay  sticky : true"></tr>
+      <tr mat-row *matRowDef="let row; columns : columnsToDisplay"></tr>
+
+    </table>
+
+  </div>
+
+</div>
+
+
+

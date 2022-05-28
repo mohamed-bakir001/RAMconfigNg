@@ -1,11 +1,5 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {MatTableDataSource} from "@angular/material/table";
-import {LiveAnnouncer} from "@angular/cdk/a11y";
-import {MatSort, Sort} from "@angular/material/sort";
-import {MatPaginator} from "@angular/material/paginator";
 import {DataService} from "../core/services/data.service";
-import {Airplane} from "../core/models/airplan.model";
-import {catchError, map, Observable, of, Subscription} from "rxjs";
 import {Router} from "@angular/router";
 import {NgxUiLoaderModule, NgxUiLoaderService} from "ngx-ui-loader";
 
@@ -35,6 +29,17 @@ export class AirplaneComponent implements OnInit , AfterViewInit {
       this.onGetAirplans()
       this.ngxuiService.stop()
 
+  }
+
+  onDeleteAirplan(id:number){
+    this.ngxuiService.start()
+    this.dataSerive.deleteAirplan(id).subscribe(air=>{
+
+      setTimeout(()=>{
+        this.onGetAirplans();
+        this.ngxuiService.stop();
+      }, 1000)
+    })
   }
 
   onGetAirplans(){

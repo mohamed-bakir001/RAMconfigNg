@@ -5,6 +5,7 @@ import {AuthService} from "../core/services/auth.service";
 import {TokenStorageService} from "../core/services/token-storage.service";
 import {User} from "../core/models/user.model";
 
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -12,7 +13,7 @@ import {User} from "../core/models/user.model";
 })
 export class SignupComponent implements OnInit {
 
-  hide= true ;
+  hide = true ;
   loginForm!: FormGroup  ;
   isLoginFailed:Boolean;
   isLoggedIn ;
@@ -36,14 +37,14 @@ export class SignupComponent implements OnInit {
       password:[null, [Validators.required, Validators.minLength(6)]],
       firstName:[null,[Validators.required]],
       lastName:[null,[Validators.required]],
-      role:[null, [Validators.required]]
+      roles:[null, [Validators.required]]
     })
   }
 
   register(){
     if(this.loginForm.value){
      this.user = this.loginForm.value;
-     this.user.roles = Array(this.loginForm.get("role").value) ;
+     this.user.roles = Array(this.loginForm.get("roles").value) ;
      console.log(this.user)
 
       this.authService.register(this.user).subscribe(resutl =>{

@@ -20,8 +20,8 @@
 
   </div>
 
-  <mat-toolbar class="d-flex justify-content-center align-content-center" style="font-size: 3em">
-    <span>Aiplane : Systems</span>
+  <mat-toolbar class="d-flex justify-content-center align-content-center" style="font-size: 3em" *ngIf="airplan">
+    <span>Aiplane : {{airplan.tailNumber}}</span>
   </mat-toolbar>
   <div class="containers1 mt-4" >
     <table mat-table [dataSource]="dataSystems"  >

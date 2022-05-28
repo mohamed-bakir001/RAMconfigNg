@@ -1,0 +1,50 @@
+import { Component, OnInit } from '@angular/core';
+import {DataService} from "../core/services/data.service";
+import {Router} from "@angular/router";
+import {NgxUiLoaderService} from "ngx-ui-loader";
+
+@Component({
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css']
+})
+export class UserComponent implements OnInit {
+
+  columnsToDisplay = [ "First name", "Last name", "Username", "Roles", "Actions"];
+  firstUpload:boolean=true;
+  users: any ;
+  constructor(private dataSerive: DataService,
+              private router:Router,
+              private ngxuiService:NgxUiLoaderService) {
+  }
+  ngAfterViewInit() {
+
+  }
+
+
+
+  ngOnInit(): void {
+    this.ngxuiService.stop()
+    this.onGetUsers();
+
+
+  }
+
+  onGetUsers(){
+    this.ngxuiService.start()
+    this.dataSerive.getUsers().subscribe(users=>{
+      this.users = users ;
+      console.log(this.users)
+      this.ngxuiService.stop();
+    })
+
+  }
+
+  update(user) {
+
+  }
+
+  addUser() {
+    this.router.navigateByUrl('api/signup');
+  }
+}
