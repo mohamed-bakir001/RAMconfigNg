@@ -10,7 +10,7 @@
               <input type="file" (change)="onChange($any($event).target.files)" name="files" id="file" class="form-control" accept=".xml" />
             </div>
             <div class="but d-flex justify-content-center">
-              <button (click)="onUploadFiles()" mat-raised-button color="warn">Upload</button>
+              <button (click)="onUploadFiles()" mat-raised-button color="warn" [disabled]="file==null">Upload</button>
             </div>
 
 

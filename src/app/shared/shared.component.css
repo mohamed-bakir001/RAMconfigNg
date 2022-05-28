@@ -6,7 +6,7 @@
 .logo {
   position: relative;
   top:-11px;
-  width: auto;
+  width: 30%;
   height: 15vh;
 }
 
@@ -64,4 +64,8 @@
   color: red;
   text-shadow:  0 0 10px red;
 
+}
+
+.logout{
+  width: 30vw;
 }

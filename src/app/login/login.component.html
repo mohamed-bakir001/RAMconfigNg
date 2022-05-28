@@ -1,7 +1,7 @@
 <div class="large-container">
 
 
-      <div class="card shadow-lg p-3 mb-5 bg-body ">
+      <div class="card shadow-lg p-3 mb-5 bg-body  " style="border-radius: 10PX">
         <div class="logo">
           <img src="./../../assets/images/royal-air-maroc-logo-alt.png" alt="ARM">
         </div>
@@ -32,8 +32,11 @@
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
+            <mat-error >
+              Please enter a password.
+            </mat-error>
           </mat-form-field>
-          <button class="shadow shadow-sm" color="primary" mat-raised-button style="background-color:red"
+          <button class="shadow mt-3" color="primary" mat-raised-button style="background-color:red"
           (click)="submit()">Connexion</button>
         </form>
         <!-- <div class="inscrire">

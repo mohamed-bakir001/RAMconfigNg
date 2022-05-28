@@ -1,6 +1,6 @@
 <div class=" d-flex flex-column  larg-container " >
-  <nav class="navb navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
+  <nav class="navb navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between ">
+      <div class="container" style="width: auto;">
         <img src="assets/images/bakir_ram_image-removebg-preview.png" alt="" class="logo">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -15,7 +15,14 @@
         </div>
       </div>
 
-        <div class="logout">
+        <div class="logout d-flex flex-row justify-content-end align-content-center align-items-center">
+          <div class="d-flex flex-row border shadow justify-content-around align-items-center rounded-2" style="height: 100% ; width: 10vw ;">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" style="color:darkblue" >person</mat-icon>
+            <span style="font-size: 1rem;font-family: 'Comic Sans MS';color: blue">
+              {{user.firstName +' ' + user.lastName }}
+            </span>
+
+          </div>
           <button style="border: none;" (click)="logout()" >
             <mat-icon aria-hidden="false" aria-label="Example home icon" class="m-lg-3" >logout</mat-icon>
           </button>

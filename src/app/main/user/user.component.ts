@@ -47,4 +47,16 @@ export class UserComponent implements OnInit {
   addUser() {
     this.router.navigateByUrl('api/signup');
   }
+
+  deleteUser(id) {
+    this.ngxuiService.start()
+    this.dataSerive.deleteUser(id).subscribe(()=>{
+      setTimeout(()=>{
+        this.onGetUsers()
+        this.ngxuiService.stop()
+      },500)
+
+    })
+
+  }
 }

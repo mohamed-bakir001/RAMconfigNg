@@ -85,7 +85,13 @@
        class="justify-content-center align-content-center"
        style="width: 100%"
   >
-    <mat-toolbar class="d-flex justify-content-center align-content-center toolbar" style="font-size: 2em" >
+
+    <mat-toolbar class="d-flex justify-content-center align-content-center align-items-center toolbar" style="font-size: 2em" >
+      <div class="return">
+        <button style="border: none; " (click)="return()">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" >arrow_back_ios_new</mat-icon>
+        </button>
+      </div>
       <span>Manual setup </span>  <span *ngIf="swlocation">{{swlocation.value}}</span>
     </mat-toolbar>
   </div>

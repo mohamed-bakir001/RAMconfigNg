@@ -23,6 +23,7 @@ export class SharedComponent implements OnInit {
               ) { }
 
   ngOnInit(): void {
+    console.log(this.user)
   }
 
 

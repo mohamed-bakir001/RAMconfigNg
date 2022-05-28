@@ -90,7 +90,10 @@ export class UploadComponent implements OnInit {
             event=>{
               if(event){
                 this.resportProgress(event)
-                this.route.navigateByUrl('/api/airplan') ;
+                setTimeout(()=>{
+                  this.route.navigateByUrl('/api/airplan') ;
+                }, 3000)
+
               }
 
             },

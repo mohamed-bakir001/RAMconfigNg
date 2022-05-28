@@ -48,4 +48,7 @@ export class DataService {
   getUsers():Observable<User[]>{
     return this.http.get<User[]>(this.host+'/users') ;
   }
+  deleteUser(id:number):Observable<User>{
+    return this.http.delete<User>(this.host+'/user/'+id) ;
+  }
 }

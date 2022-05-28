@@ -25,9 +25,12 @@
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef >Action</th>
     <td mat-cell *matCellDef="let airplan">
-      <button mat-raised-button color="primary" (click)="onGetSystem(airplan.airpId)">System</button>
+      <button mat-raised-button color="primary" (click)="onGetSystem(airplan.airpId)" >System</button>
 
-      <button mat-raised-button color="warn" (click)="onDeleteAirplan(airplan.airpId)" style="margin-left: 5px; ">delete</button>
+      <button mat-raised-button color="warn"
+              *ngIf="role=='ADMIN'"
+              (click)="onDeleteAirplan(airplan.airpId)"
+              style="margin-left: 5px; ">delete</button>
     </td>
   </ng-container>
 
