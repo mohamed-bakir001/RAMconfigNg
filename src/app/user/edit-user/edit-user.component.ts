@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../../core/services/auth.service";
 import {TokenStorageService} from "../../core/services/token-storage.service";
 import {DataService} from "../../main/core/services/data.service";
+import {NgxUiLoaderService} from "ngx-ui-loader";
 
 @Component({
   selector: 'app-edit-user',
@@ -27,7 +28,8 @@ export class EditUserComponent implements OnInit {
                private dataService:DataService,
                private fb: FormBuilder,
                private authService: AuthService,
-               private tokenStorage:TokenStorageService) { }
+               private tokenStorage:TokenStorageService,
+               private ngxService:NgxUiLoaderService) { }
 
   ngOnInit(): void {
    this.userid =  this.activatedRoute.snapshot.params["id"]
@@ -37,6 +39,7 @@ export class EditUserComponent implements OnInit {
   createFormGroup(){
     this.dataService.getUser(this.userid).subscribe(user=>{
       this.loginForm = this.fb.group({
+        id:[user.id],
         username:[user.username, [Validators.required, Validators.minLength(6)]],
         password:[null, [Validators.required, Validators.minLength(6)]],
         firstName:[user.firstName,[Validators.required]],
@@ -48,11 +51,27 @@ export class EditUserComponent implements OnInit {
   }
 
   update(){
-    if(this.loginForm.value){
+    this.ngxService.start();
+    if(this.loginForm.get('password').value){
+      this.user = this.loginForm.value
+      this.dataService.deleteUser(this.loginForm.get('id').value).subscribe(
+        result=>console.log(result)
+      )
       this.user = this.loginForm.value;
       this.user.roles = Array(this.loginForm.get("roles").value) ;
+
+      setTimeout(()=>{
+        this.authService.register(this.user).subscribe(
+          result=>{
+            console.log(result);
+            this.ngxService.stop()
+          }
+        )
+      },700)
+
+
     }
-    //  this.route.navigateByUrl('/login');
+    this.route.navigateByUrl('api/user');
   }
 
   return() {

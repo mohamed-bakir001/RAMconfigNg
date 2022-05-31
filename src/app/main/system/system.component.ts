@@ -20,7 +20,7 @@ export class SystemComponent implements OnInit ,AfterViewInit{
   idAirp?: number ;
   airplan:Airplane ;
   dataSystems? : any ;
-  search :string;
+
 
 
 
@@ -69,7 +69,7 @@ export class SystemComponent implements OnInit ,AfterViewInit{
   }
 
 
-  search1() {
-    //for implement filter
+  onSearch(event) {
+    this.dataSystems.filter = event.target.value.toLowerCase();
   }
 }
