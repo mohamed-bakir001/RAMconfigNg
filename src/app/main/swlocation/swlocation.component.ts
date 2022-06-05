@@ -74,4 +74,5 @@ export class SwlocationComponent implements OnInit {
   return() {
     this.route.navigateByUrl("api/system/" + this.airId);
   }
+
 }

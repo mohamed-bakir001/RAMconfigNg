@@ -3,6 +3,7 @@ import {DataService} from "../main/core/services/data.service";
 import {Router} from "@angular/router";
 import {NgxUiLoaderService} from "ngx-ui-loader";
 import {User} from "../core/models/user.model";
+import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-user',
@@ -27,14 +28,12 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     this.ngxuiService.stop()
     this.onGetUsers();
-
-
   }
 
   onGetUsers(){
     this.ngxuiService.start()
     this.dataSerive.getUsers().subscribe(users=>{
-      this.users = users ;
+      this.users = new MatTableDataSource<User>(users) ;
       console.log(this.users)
       this.ngxuiService.stop();
     })
@@ -58,6 +57,9 @@ export class UserComponent implements OnInit {
       },500)
 
     })
-
   }
+
+  onSearch(event) {
+    this.users.filter = event.target.value.trim().toLowerCase();
+   }
 }

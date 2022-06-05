@@ -49,7 +49,7 @@ export class SignupComponent implements OnInit {
 
       this.authService.register(this.user).subscribe(resutl =>{
         console.log(resutl)
-        this.route.navigateByUrl("api/dashboard") ;
+        this.route.navigateByUrl("api/user") ;
       }) ;
     }
     //  this.route.navigateByUrl('/login');

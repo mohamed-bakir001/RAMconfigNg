@@ -4,6 +4,9 @@ import {Router} from "@angular/router";
 import {NgxUiLoaderModule, NgxUiLoaderService} from "ngx-ui-loader";
 import {User} from "../../core/models/user.model";
 import {TokenStorageService} from "../../core/services/token-storage.service";
+import {MatTableDataSource} from "@angular/material/table";
+import {Systeme} from "../core/models/system.model";
+import {Airplane} from "../core/models/airplan.model";
 
 
 
@@ -14,7 +17,7 @@ import {TokenStorageService} from "../../core/services/token-storage.service";
 })
 
 export class AirplaneComponent implements OnInit , AfterViewInit {
-  columnsToDisplay = [ "tail number", "date", "action"];
+  columnsToDisplay = [ "tailNumber", "date", "action"];
   firstUpload:boolean=true;
   airplanes: any ;
   user: User = this.tokenService.getUser()
@@ -33,6 +36,9 @@ export class AirplaneComponent implements OnInit , AfterViewInit {
   ngOnInit(): void {
       this.onGetAirplans()
       this.ngxuiService.stop()
+      this.airplanes.filterPredicate = function customFilter(data , filter :string ): boolean {
+      return (data.tailNumber.startsWith(filter));
+    }
 
   }
 
@@ -50,7 +56,7 @@ export class AirplaneComponent implements OnInit , AfterViewInit {
   onGetAirplans(){
     this.ngxuiService.start()
     this.airplanes =  this.dataSerive.getAirplaines().subscribe(airp =>{
-        this.airplanes = airp
+        this.airplanes = new MatTableDataSource<Airplane>(airp)
     })
   }
 
@@ -60,5 +66,11 @@ export class AirplaneComponent implements OnInit , AfterViewInit {
 
   return() {
     this.router.navigateByUrl('api/dashboard')
+  }
+
+  onSearch(event) {
+    this.airplanes.filter = event.target.value.trim().toLowerCase();
+    console.log( this.airplanes)
+
   }
 }

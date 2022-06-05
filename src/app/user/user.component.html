@@ -1,11 +1,17 @@
 <div *ngIf="users"  class="containers shadow-lg p-3 mb-5 bg-white rounded">
 
 
-  <div class="return mb-2">
+  <div class="return  d-flex justify-content-between mb-2">
     <button  mat-stroked-button color="primary" (click)="addUser()">
       <mat-icon aria-hidden="false" aria-label="Example home icon" >add</mat-icon>
       <span>user</span>
     </button>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Search</mat-label>
+      <input type="search" matInput placeholder="Ex. search"
+             value=""
+             (keyup)="onSearch($event)">
+    </mat-form-field >
   </div>
 
   <mat-toolbar class="d-flex justify-content-center align-content-center" style="font-size: 3em">
