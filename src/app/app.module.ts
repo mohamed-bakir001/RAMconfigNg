@@ -26,6 +26,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {NgxUiLoaderConfig, NgxUiLoaderModule} from "ngx-ui-loader";
 import { UserComponent } from './user/user.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
+import {CarouselModule} from "ngx-bootstrap/carousel";
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   'bgsColor': '#50a4ed',
@@ -67,24 +68,25 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     UserComponent,
     EditUserComponent
   ],
-  imports: [
-    FormsModule,
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    MatInputModule,
-    MatIconModule,
-    MatButtonModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatToolbarModule,
-    MatOptionModule,
-    MatSelectModule,
-    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
-    FormsModule
-  ],
+    imports: [
+        FormsModule,
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        MatInputModule,
+        MatIconModule,
+        MatButtonModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatToolbarModule,
+        MatOptionModule,
+        MatSelectModule,
+        NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
+        FormsModule,
+        CarouselModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
